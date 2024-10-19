@@ -251,7 +251,7 @@ header img {
 .skill .skill-content {
   padding: 0.5rem 2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto, 1fr);
   gap: 1.5rem;
   width: 80%;
   margin-top: 1rem;
