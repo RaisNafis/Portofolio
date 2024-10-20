@@ -8,25 +8,26 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="assets/img/icon-title.png" />
+    <title>Rais</title>
   </head>
   <body>
     <nav id="navbar" class="navbar">
-      <h2 class="logo">Rais</h2>
+      <h2 class="logo"></h2>
       <ul class="navlist">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skill">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a id="nav1" class="active" href="#home">Home</a></li>
+        <li><a id="nav2" href="#about">About</a></li>
+        <li><a id="nav3" href="#skill">Skills</a></li>
+        <li><a id="nav4" href="#contact">Contact</a></li>
       </ul>
       <div class="github">
-        <a href="https://github.com/raisnafis"><i class="bx bxl-github"></i></a>
+        <a href=""><i class="bx bxl-github"></i></a>
       </div>
     </nav>
 
     <header class="container">
       <section id="home">
-        <div class="content">
+        <div class="content animation-dropdown">
           <h1>
             Hello, im <span>Rais Annafis</span>
             <p id="text-typing"></p>
@@ -37,8 +38,10 @@
             ducimus praesentium, iste nesciunt dolores beatae fugiat excepturi
             cupiditate laboriosam pariatur accusantium quam!
           </p>
-          <button class="btn-aboutme"><a href="#about">About me</a></button>
-          <div class="social-media">
+          <button class="btn-aboutme animation-dropdown">
+            <a href="#about">About me</a>
+          </button>
+          <div class="social-media animation-dropdown">
             <div class="instagram box-icon">
               <a href="https://www.instagram.com/rais_404_911/"
                 ><i class="bx bxl-instagram"></i
@@ -82,19 +85,19 @@
               sequi natus, quia, culpa voluptatibus porro suscipit harum ipsam
               similique quisquam libero saepe mollitia nemo repellendus illo.
             </p>
-            <div class="education">
+            <div class="education animation-dropdown">
               <h4>Elementary school</h4>
               <ul>
-                <li>SD 17 Negeri</li>
-                <li>SD 6 Negeri</li>
+                <li>SD 17 Negeri Tanjung Pandan, Belitung</li>
+                <li>SD 6 Negeri Pangkalpinang, Bangka</li>
               </ul>
               <h4>Junior High school</h4>
               <ul>
-                <li>SMP Negeri 2</li>
+                <li>SMP Negeri 2 Pangkalpinang, Bangka</li>
               </ul>
               <h4>Senior High school</h4>
               <ul>
-                <li>SMK Negeri 2</li>
+                <li>SMK Negeri 2 Pangkalpinang, Bangka</li>
               </ul>
             </div>
           </div>
@@ -110,7 +113,7 @@
           alt=""
         />
       </div>
-      <div class="desc-container">
+      <div class="desc-container animation-dropdown">
         <div class="description">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
@@ -122,30 +125,33 @@
       </div>
       <div class="skill-container">
         <div class="skill-content">
-          <div class="card-container">
-            <h2>Language</h2>
+          <div class="card-container animation-dropdown">
+            <h2>Front End</h2>
             <div class="bar">
               <div class="bar-title html"><h3>HTML</h3></div>
               <div class="bar-fill">
-                <div class="bar-active html-skill"></div>
+                <div id="html-skill" class="bar-active html-skill"></div>
               </div>
             </div>
             <div class="bar">
               <div class="bar-title css"><h3>CSS</h3></div>
               <div class="bar-fill">
-                <div class="bar-active css-skill"></div>
+                <div id="css-skill" class="bar-active css-skill"></div>
               </div>
             </div>
             <div class="bar">
               <div class="bar-title js"><h3>Javascript</h3></div>
               <div class="bar-fill">
-                <div class="bar-active js-skill"></div>
+                <div id="js-skill" class="bar-active js-skill"></div>
               </div>
             </div>
+          </div>
+          <div class="card-container animation-dropdown">
+            <h2>Back End</h2>
             <div class="bar">
               <div class="bar-title php"><h3>PHP</h3></div>
               <div class="bar-fill">
-                <div class="bar-active php-skill"></div>
+                <div id="php-skill" class="bar-active php-skill"></div>
               </div>
             </div>
           </div>
@@ -156,7 +162,7 @@
     <section id="contact" class="contact">
       <h1>Contact</h1>
       <div class="contact-container">
-        <div class="contact-content">
+        <div class="contact-content animation-dropdown">
           <div class="card-info">
             <h2>Contact me</h2>
             <p>
@@ -167,9 +173,13 @@
             </p>
             <div class="social-media contact-sosmed">
               <div class="instagram box-icon">
-                <a href="https://www.instagram.com/rais_404_911/"
-                  ><i class="bx bxl-instagram"></i
-                ></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+              </div>
+              <div class="discord box-icon">
+                <a href="#"><i class="bx bxl-discord-alt"></i></a>
+              </div>
+              <div class="telegram box-icon">
+                <a href="#"><i class="bx bxl-telegram"></i></a>
               </div>
               <div class="email box-icon">
                 <a href="#"><i class="bx bx-envelope"></i></a>
@@ -212,5 +222,19 @@
       loop: true,
       waitUntilVisible: true,
     }).go();
+
+    new TypeIt(".logo", {
+      speed: 190, // Speed of typing
+      deleteSpeed: 80, // Speed of deletion
+      loop: true, // Loop the animation
+      waitUntilVisible: true, // Start only when visible on the screen
+    })
+      .type("Rais") // Type the first string
+      .pause(1000) // Pause for 1 second
+      .delete() // Delete the typed string
+      .type("Rais Annafis") // Type the second string
+      .pause(1000) // Pause for 1 second
+      .delete() // Delete the second string
+      .go(); // Start the animation
   </script>
 </html>
