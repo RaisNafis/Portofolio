@@ -1,7 +1,28 @@
+// const checkboxContainer = document.querySelector(".checkbox");
+// const body = document.querySelector("body");
+
+// let checked = false;
+// checkboxContainer.addEventListener("click", () => {
+//   if (!checked) {
+//     checkboxContainer.style.boxShadow = "0 0 2px white";
+//     checkboxContainer.style.setProperty("--before-left", "50%");
+//     checkboxContainer.style.setProperty("--before-bgColor", "white");
+//     checkboxContainer.style.boxShadow = "0 0 2px white";
+//     body.style.backgroundColor = "black";
+//     checked = true;
+//   } else {
+//     checkboxContainer.style.setProperty("--before-left", "10%");
+//     checkboxContainer.style.boxShadow = "0 0 2px black";
+//     body.style.backgroundColor = "white";
+
+//     checked = false;
+//   }
+// });
+
 const navbar = document.getElementById("navbar");
 const dropdownElements = document.querySelectorAll(".animation-dropdown");
 
-const navElements = [nav1, nav2, nav3, nav4];
+const navElements = [nav1, nav2, nav3, nav4, nav5];
 
 navElements.forEach((nav, index) => {
   nav.onclick = function () {
