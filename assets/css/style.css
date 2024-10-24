@@ -687,6 +687,7 @@ footer p {
   }
   .project .project-container .project-content .project-card {
     margin-left: 0;
+    height: 450px;
   }
   .project .project-container .project-content .project-card::before {
     height: 30%;
