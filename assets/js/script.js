@@ -24,6 +24,51 @@ const dropdownElements = document.querySelectorAll(".animation-dropdown");
 
 const navElements = [nav1, nav2, nav3, nav4, nav5];
 
+const nav_menu = document.querySelector(".bx-menu");
+const navbar_mobile = document.querySelector(".container-mobile");
+const nav_mobile = document.querySelectorAll(".nav-mobile");
+const anchor_mobile = document.querySelectorAll(".navlist-mobile li a");
+let navbarActive = false;
+
+anchor_mobile.forEach((anchor) => {
+  anchor.addEventListener("click", () => {
+    anchor_mobile.forEach((item) =>
+      item.style.setProperty("--navwidthMobile", "0")
+    );
+
+    anchor.style.setProperty("--navwidthMobile", "100%");
+  });
+});
+
+nav_mobile.forEach((nav, index) => {
+  nav.onclick = function () {
+    nav_mobile.forEach((alamak) => alamak.classList.remove("active"));
+    nav_mobile[index].classList.add("active");
+  };
+});
+
+nav_menu.addEventListener("click", () => {
+  if (!navbarActive) {
+    navbar_mobile.style.width = "180px";
+    navbarActive = true;
+  } else {
+    navbarActive = false;
+    navbar_mobile.style.width = "0";
+    navbar_mobile.style.height = "100vh";
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    navbarActive &&
+    !nav_menu.contains(event.target) &&
+    !navbar_mobile.contains(event.target)
+  ) {
+    navbarActive = false;
+    navbar_mobile.style.width = "0";
+  }
+});
+
 navElements.forEach((nav, index) => {
   nav.onclick = function () {
     navElements.forEach((el) => el.classList.remove("active"));
@@ -34,6 +79,8 @@ window.addEventListener("scroll", () => {
   let value_y = window.scrollY;
   if (value_y > 10) {
     navbar.style.borderBottom = "0.1px solid black";
+    navbarActive = false;
+    navbar_mobile.style.width = "0";
   } else {
     navbar.style.border = "none";
   }
@@ -119,4 +166,18 @@ document.addEventListener("scroll", function () {
       }
     });
   }
+});
+
+// Project card animation button hover
+const buttonCard = document.querySelectorAll(".visit-project");
+const projectCard = document.querySelectorAll(".project-card");
+
+buttonCard.forEach((button, index) => {
+  button.addEventListener("mouseenter", () => {
+    projectCard[index].style.setProperty("--height", "30%");
+  });
+
+  button.addEventListener("mouseleave", () => {
+    projectCard[index].style.setProperty("--height", "0");
+  });
 });
