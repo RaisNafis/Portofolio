@@ -11,7 +11,6 @@
   align-items: center;
   padding: 0.5rem 1rem;
   font-family: "Open Sans", "Helvetica";
-  overflow: hidden;
   position: fixed;
   width: 100%;
   right: 0;
@@ -19,6 +18,13 @@
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(15px);
   transition: all 0.5 ease;
+  position: relative;
+}
+.navbar .container-mobile {
+  display: none;
+}
+.navbar .bx-menu {
+  display: none;
 }
 .navbar .logo {
   width: 150px;
@@ -268,6 +274,7 @@ header img {
 }
 .swiper-button {
   color: grey;
+  cursor: none;
 }
 .swiper-pagination-bullet {
   background: limegreen;
@@ -292,6 +299,7 @@ header img {
   padding: 2rem 5px;
   box-shadow: 0 0 4px grey;
   border-radius: 8px;
+  height: 400px;
 }
 .project .project-container .project-content .project-card {
   display: flex;
@@ -308,10 +316,11 @@ header img {
   content: "";
   position: absolute;
   width: 100%;
-  height: 28%;
+  height: var(--height, 0);
   background-color: limegreen;
   top: 0;
   z-index: -1;
+  transition: all 0.5s ease;
 }
 
 .project-content .project-card p {
@@ -332,13 +341,28 @@ header img {
   border-radius: 5px;
   width: 150px;
   transition: all 0.5s ease;
+  position: relative;
   margin-bottom: 15px;
+  overflow: hidden;
+  z-index: 9999999;
+}
+.project-content .project-card button::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+.project-content .project-card button:hover::before {
+  background-color: limegreen !important;
+  height: 100%;
 }
 .project-content .project-card button:hover {
-  background-color: green;
-  color: white;
+  color: white !important;
 }
-
 .skill {
   border-top: 1px solid black;
   padding: 1rem 0;
@@ -573,11 +597,58 @@ footer p {
 
 /* Responsive design gilaaa sihhh */
 @media (max-width: 720px) {
+  .navbar {
+    position: fixed;
+  }
   .navbar .github {
     display: none;
   }
   .navbar .navlist {
     gap: 1rem;
+    display: none;
+  }
+  .navbar .bx-menu {
+    display: block;
+    font-size: 20px;
+  }
+  .navbar .container-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: #4cc9fe;
+    height: 100vh;
+    width: 0;
+    color: white;
+    overflow: hidden;
+    transition: width 0.5s ease;
+  }
+  .navbar .navlist-mobile {
+    padding: 10px;
+    display: grid;
+    gap: 20px;
+    margin-top: 40px;
+    font-size: 20px;
+    padding: 5px 20px;
+  }
+  .navbar .navlist-mobile li {
+    list-style: none;
+  }
+  .navbar .navlist-mobile li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+  }
+  .navbar .navlist-mobile li a::before {
+    position: absolute;
+    background-color: red;
+    content: "";
+    top: 105%;
+    left: 0;
+    width: var(--navwidthMobile, 0);
+    height: 2px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
   }
   #home {
     flex-direction: column;
@@ -616,5 +687,8 @@ footer p {
   }
   .project .project-container .project-content .project-card {
     margin-left: 0;
+  }
+  .project .project-container .project-content .project-card::before {
+    height: 30%;
   }
 }
